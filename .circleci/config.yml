@@ -45,4 +45,6 @@ jobs:
            docker images --no-trunc | awk '/^app/ {print $3}' | \
              sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt;
            docker push ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME};
+         else
+          echo "NOT ON MASTER, WE ARE ON ${CIRCLE_BRANCH}"
          fi
